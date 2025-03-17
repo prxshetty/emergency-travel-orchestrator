@@ -22,15 +22,15 @@ Our system includes specialized agents for different aspects of travel emergenci
 
 | Agent | Role | Primary Responsibilities |
 |-------|------|------------------------|
-| 🎯 Emergency Coordinator | Central Orchestrator | Triage requests, delegate tasks, coordinate responses |
-| 🚑 Medical Evacuation Specialist | Medical Emergency Handler | Assess medical situations, arrange evacuations |
-| 🌪️ Disaster Response Expert | Natural Disaster Specialist | Handle evacuations, assess disaster impacts |
-| 🛡️ Security Analyst | Security Expert | Evaluate threats, provide safety guidance |
-| 📄 Documentation Expert | Travel Document Specialist | Handle visa/passport emergencies |
-| 🏨 Accommodation Finder | Housing Specialist | Secure emergency accommodation |
-| 📞 Communication Coordinator | Communication Expert | Establish reliable communication channels |
-| 💉 Medical Advisor | Health Consultant | Provide medical guidance and recommendations |
-| 📍 Local Resource Locator | Local Support Specialist | Connect with local emergency services |
+| Emergency Coordinator | Central Orchestrator | Triage requests, delegate tasks, coordinate responses |
+| Medical Evacuation Specialist | Medical Emergency Handler | Assess medical situations, arrange evacuations |
+| Disaster Response Expert | Natural Disaster Specialist | Handle evacuations, assess disaster impacts |
+| Security Analyst | Security Expert | Evaluate threats, provide safety guidance |
+| Documentation Expert | Travel Document Specialist | Handle visa/passport emergencies |
+| Accommodation Finder | Housing Specialist | Secure emergency accommodation |
+| Communication Coordinator | Communication Expert | Establish reliable communication channels |
+| Medical Advisor | Health Consultant | Provide medical guidance and recommendations |
+| Local Resource Locator | Local Support Specialist | Connect with local emergency services |
 
 ##  Installation
 
