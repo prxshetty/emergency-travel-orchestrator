@@ -1,10 +1,11 @@
-# Emergency Travel Response System 🌍✈️
+# Emergency Travel Response System
 
 A sophisticated multi-agent system leveraging LangGraph's Swarm architecture, langSmith and OpenAI to coordinate emergency travel assistance. This system demonstrates advanced agent collaboration for handling complex travel emergencies through specialized AI agents.
 
 [![Python Version](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![LangChain](https://img.shields.io/badge/langchain-latest-orange.svg)](https://python.langchain.com/)
+[![LangSmith](https://img.shields.io/badge/langsmith-latest-blue.svg)](https://smith.langchain.com/)
 
 ##  Features
 
@@ -82,7 +83,7 @@ Our system includes specialized agents for different aspects of travel emergenci
 
 3. **Follow the interactive prompts** to see how the agents handle the situation
 
-##  Monitoring with LangSmith
+## Monitoring with LangSmith
 
 ### Setup
 1. Create an account at [LangSmith](https://smith.langchain.com/)
@@ -96,7 +97,7 @@ Our system includes specialized agents for different aspects of travel emergenci
 - **Debug Tools**: Analyze agent decision-making processes
 - **Scenario Analytics**: Track performance across different emergency types
 
-##  Project Structure
+## Project Structure
 
 - `agents/`: Contains the definitions of all specialized agents
 - `tools/`: Contains the emergency tools implementation
@@ -140,7 +141,7 @@ Add scenarios in `scenarios/emergency_scenarios.py`:
 }
 ```
 
-##  Contribution
+## Contribution
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
@@ -148,19 +149,19 @@ Add scenarios in `scenarios/emergency_scenarios.py`:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request 
 
-##  License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-##  Acknowledgments
+## Acknowledgments
 
 - LangChain team for the excellent framework, specifically this YouTube video on building agent swarms: https://www.youtube.com/watch?v=4oC1ZKa9-Hs
 
-##  Screenshots
+## Screenshots
 
 [Coming Soon] Screenshots demonstrating the system in action will be added here.
 
-## 🔮 Future Enhancements
+## Future Enhancements
 - [ ] Integration with real-world emergency services APIs ( TavilyAPI, SerpAPI for actual accomodations, travel expense)
 - [ ] Mobile application interface ( Locally Hosted LLMs on Devices (<4B) should be able to fulfill this task perfectly)
 - [ ] Multi-language support ( If this scales )
