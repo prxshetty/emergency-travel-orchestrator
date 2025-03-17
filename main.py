@@ -1,80 +1,66 @@
-import json
-from typing import Dict, List, Any
+import time
 from langchain_openai import ChatOpenAI
 from langgraph.checkpoint.memory import InMemorySaver
-from langgraph.prebuilt import create_react_agent
-from langgraph_swarm import create_handoff_tool, create_swarm
+from langgraph_swarm import create_swarm
 from langgraph.store.memory import InMemoryStore
 from dotenv import load_dotenv
-
+from agents.agent_definitions import create_agents
+from utils.formatting import pretty_print_response, print_scenario_menu, print_scenario_header, print_followup_header
+from utils.invocation import invoke_with_retry
+from scenarios.emergency_scenarios import get_scenarios
 load_dotenv()
-model = ChatOpenAI(model="gpt-4o")
-
-def add(a: int, b: int) -> int:
-    """Add two numbers"""
-    return a + b
-
-def create_agents():
-    """Create and configure the agent ensemble."""
-    # Initialize the language model
-    model = ChatOpenAI(model="gpt-4o")
-
-    # Create Alice: the addition expert
-    alice = create_react_agent(
-        model,
-        [add, create_handoff_tool(agent_name="Bob")],
-        prompt="You are Alice, an addition expert.",
-        name="Alice",
-    )
-
-    # Create Bob: the pirate speaker
-    bob = create_react_agent(
-        model,
-        [create_handoff_tool(agent_name="Alice", description="Transfer to Alice, she can help with math")],
-        prompt="You are Bob, you speak like a pirate.",
-        name="Bob",
-    )
-    
-    return alice, bob
-
-def pretty_print_response(turn_number: int, response: Dict[str, Any]):
-    """Format and print the agent response in a readable way."""
-    print(f"\n{'='*50}")
-    print(f"TURN {turn_number} RESPONSE")
-    print(f"{'='*50}")    
-    if "messages" in response:
-        for msg in response["messages"]:
-            role = getattr(msg, "type", "unknown")
-            content = getattr(msg, "content", "")
-            print(f"{role.upper()}: {content}")
-    else:
-        print(json.dumps(response, indent=2))
-    print(f"{'='*50}\n")
 
 def main():
-    alice, bob = create_agents()
+    model = ChatOpenAI(model="gpt-4", temperature=0.2)    
+    agents = create_agents(model)    
     checkpointer = InMemorySaver()
-    store = InMemoryStore()
+    store = InMemoryStore()    
     workflow = create_swarm(
-        [alice, bob],
-        default_active_agent="Alice"
-    )
-    app = workflow.compile(checkpointer=checkpointer, store = store)    
-    config = {"configurable": {"thread_id": "1"}}
+        list(agents.values()),
+        default_active_agent="EmergencyCoordinator"
+    )    
+    app = workflow.compile(checkpointer=checkpointer, store=store)    
+    scenarios = get_scenarios()
+    print_scenario_menu(scenarios)
+    while True:
+        choice = input("\nSelect a scenario number (1-6): ")
+        if choice in scenarios:
+            break
+        print("Invalid choice. Please select a number between 1 and 6.")
     
-    # First interaction: Ask to speak to Bob
-    turn_1 = app.invoke(
-        {"messages": [{"role": "user", "content": "I'd like to speak to Bob"}]},
-        config,
-    )
-    pretty_print_response(1, turn_1)
+    selected = scenarios[choice]    
+    config = {"configurable": {"thread_id": f"emergency-{choice}"}}    
+    print_scenario_header(choice, selected)
     
-    # Second interaction: Ask a math question
-    turn_2 = app.invoke(
-        {"messages": [{"role": "user", "content": "What's 5 + 7?"}]},
-        config,
-    )
-    pretty_print_response(2, turn_2)
+    try:
+        turn_1 = invoke_with_retry(
+            app,
+            {"messages": [{"role": "user", "content": selected['initial']}]},
+            config
+        )
+        pretty_print_response(1, turn_1)        
+        print_followup_header(selected['followup'])        
+        turn_2 = invoke_with_retry(
+            app,
+            {"messages": [{"role": "user", "content": selected['followup']}]},
+            config
+        )
+        pretty_print_response(2, turn_2)
+        additional_input = input("\nWould you like to ask a follow-up question? (y/n): ")
+        if additional_input.lower() == 'y':
+            user_followup = input("\nEnter your follow-up question: ")
+            print_followup_header(f"USER: {user_followup}")            
+            turn_3 = invoke_with_retry(
+                app,
+                {"messages": [{"role": "user", "content": user_followup}]},
+                config
+            )
+            pretty_print_response(3, turn_3)
+        
+    except Exception as e:
+        print(f"Error processing scenario: {str(e)}")
+        print("Try checking your API key, model availability, and network connection.")
+
 
 if __name__ == "__main__":
     main()
