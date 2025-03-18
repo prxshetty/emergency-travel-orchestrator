@@ -7,7 +7,7 @@ A sophisticated multi-agent system leveraging LangGraph's Swarm architecture, la
 [![LangChain](https://img.shields.io/badge/langchain-latest-orange.svg)](https://python.langchain.com/)
 [![LangSmith](https://img.shields.io/badge/langsmith-latest-blue.svg)](https://smith.langchain.com/)
 
-![Untitled-2025-03-18-1118](https://github.com/user-attachments/assets/b3d147b7-3ed7-427a-8b2a-0bf4b9255f19)
+![Untitled-2025-03-18-1118(1)](https://github.com/user-attachments/assets/f1a40393-bf10-48df-810d-6fc2c1167696)
 
 
 ##  Features
