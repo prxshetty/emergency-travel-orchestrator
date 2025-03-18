@@ -162,7 +162,25 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Screenshots
 
-[Coming Soon] Screenshots demonstrating the system in action will be added here.
+### Scenario Selection
+![Scenario Selection](screenshots/scenario-selection.png)
+*The system presents various emergency scenarios for selection, including medical emergencies, security threats, and complex multi-tool scenarios.*
+
+### Agent Interactions
+![Agent Response](screenshots/agent-response.png)
+*The Emergency Coordinator analyzing a complex situation and delegating tasks to specialized agents.*
+
+### Medical Advisory
+![Medical Advisory](screenshots/medical-advisory.png)
+*The Medical Advisor providing specific guidance for the executive with a heart condition, including local emergency numbers and facility recommendations.*
+
+### Communication Coordination
+![Communication Coordination](screenshots/communication-coordinator.png)
+*The Communication Coordinator outlining strategies to locate and contact missing team members.*
+
+### LangSmith Monitoring
+![LangSmith Dashboard](screenshots/langsmith-monitoring.png)
+*Real-time monitoring of agent interactions and system performance in the LangSmith dashboard.*
 
 ## Future Enhancements
 - [ ] Integration with real-world emergency services APIs ( TavilyAPI, SerpAPI for actual accomodations, travel expense)
