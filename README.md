@@ -7,6 +7,9 @@ A sophisticated multi-agent system leveraging LangGraph's Swarm architecture, la
 [![LangChain](https://img.shields.io/badge/langchain-latest-orange.svg)](https://python.langchain.com/)
 [![LangSmith](https://img.shields.io/badge/langsmith-latest-blue.svg)](https://smith.langchain.com/)
 
+![Untitled-2025-03-18-1118](https://github.com/user-attachments/assets/b3d147b7-3ed7-427a-8b2a-0bf4b9255f19)
+
+
 ##  Features
 
 - **Multi-Agent Collaboration**: Specialized agents working together to handle complex emergencies
