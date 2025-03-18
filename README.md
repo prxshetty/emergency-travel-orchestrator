@@ -163,23 +163,28 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Screenshots
 
 ### Scenario Selection
-![Scenario Selection](screenshots/scenario-selection.png)
-*The system presents various emergency scenarios for selection, including medical emergencies, security threats, and complex multi-tool scenarios.*
+<img width="513" alt="Screenshot 2025-03-18 at 12 23 42 PM" src="https://github.com/user-attachments/assets/e0a27501-5407-4527-bcb8-0d464793c86a" />
+
+*The system presents various emergency scenarios for selection, including medical emergencies, security threats, and complex multi-tool scenarios. You can add your own in scenarios/emergency_scenarios.py*
 
 ### Agent Interactions
-![Agent Response](screenshots/agent-response.png)
+<img width="817" alt="Screenshot 2025-03-18 at 12 23 51 PM" src="https://github.com/user-attachments/assets/4fdb06d0-2c7a-46c2-bcf7-1f18bb29d0d1" />
+
 *The Emergency Coordinator analyzing a complex situation and delegating tasks to specialized agents.*
 
 ### Medical Advisory
-![Medical Advisory](screenshots/medical-advisory.png)
-*The Medical Advisor providing specific guidance for the executive with a heart condition, including local emergency numbers and facility recommendations.*
+<img width="821" alt="Screenshot 2025-03-18 at 12 24 01 PM" src="https://github.com/user-attachments/assets/570c729a-b13b-48fe-8441-d256876bbc34" />
 
-### Communication Coordination
-![Communication Coordination](screenshots/communication-coordinator.png)
-*The Communication Coordinator outlining strategies to locate and contact missing team members.*
+*The Medical Advisor providing specific guidance for the executive with a heart condition, including local emergency numbers and facility recommendations, shows a succesfull handoff and a perfect agent tool calling and execution*
+
+### Follow Up Requests
+<img width="825" alt="Screenshot 2025-03-18 at 12 24 24 PM" src="https://github.com/user-attachments/assets/ca18412b-39d6-4dfa-b32a-59511bd06024" />
+
+*The Communication Coordinator outlining strategies to locate and contact missing team members with user input ( a Follow up) .*
 
 ### LangSmith Monitoring
-![LangSmith Dashboard](screenshots/langsmith-monitoring.png)
+<img width="1512" alt="Screenshot 2025-03-17 at 7 13 20 PM" src="https://github.com/user-attachments/assets/92a3c020-9a30-4408-8624-4f949e7ef640" />
+
 *Real-time monitoring of agent interactions and system performance in the LangSmith dashboard.*
 
 ## Future Enhancements
