@@ -19,6 +19,7 @@ A sophisticated multi-agent system leveraging LangGraph's Swarm architecture, la
 - **Modular Architecture**: Easy to extend with new agents, tools, and scenarios
 - **Interactive Follow-ups**: Ability to ask additional questions and get real-time responses
 
+> Note: The project uses inMemoryStore (Short Memory) and MemorySaver (Long Memory). Also LangGraph's swarm architecture can spawn multiple agents simultaneously with each agent maintains its own conversation state so complex scenarios (like my #6) can spawn up to 7-8 agents concurrently and each agent using its own api call. ( Laymans Terms : Scenario 6 will cost you!)
 ##  Agent Ecosystem
 
 Our system includes specialized agents for different aspects of travel emergencies:
@@ -34,6 +35,34 @@ Our system includes specialized agents for different aspects of travel emergenci
 | Communication Coordinator | Communication Expert | Establish reliable communication channels |
 | Medical Advisor | Health Consultant | Provide medical guidance and recommendations |
 | Local Resource Locator | Local Support Specialist | Connect with local emergency services |
+
+## Screenshots
+
+### Scenario Selection
+<img width="513" alt="Screenshot 2025-03-18 at 12 23 42 PM" src="https://github.com/user-attachments/assets/e0a27501-5407-4527-bcb8-0d464793c86a" />
+
+*The system presents various emergency scenarios for selection, including medical emergencies, security threats, and complex multi-tool scenarios. You can add your own in scenarios/emergency_scenarios.py*
+
+### Agent Interactions
+<img width="817" alt="Screenshot 2025-03-18 at 12 23 51 PM" src="https://github.com/user-attachments/assets/4fdb06d0-2c7a-46c2-bcf7-1f18bb29d0d1" />
+
+*The Emergency Coordinator analyzing a complex situation and delegating tasks to specialized agents.*
+
+### Medical Advisory
+<img width="821" alt="Screenshot 2025-03-18 at 12 24 01 PM" src="https://github.com/user-attachments/assets/570c729a-b13b-48fe-8441-d256876bbc34" />
+
+*The Medical Advisor providing specific guidance for the executive with a heart condition, including local emergency numbers and facility recommendations, shows a succesfull handoff and a perfect agent tool calling and execution*
+
+### Follow Up Requests
+<img width="825" alt="Screenshot 2025-03-18 at 12 24 24 PM" src="https://github.com/user-attachments/assets/ca18412b-39d6-4dfa-b32a-59511bd06024" />
+
+*The Communication Coordinator outlining strategies to locate and contact missing team members with user input ( a Follow up) .*
+
+### LangSmith Monitoring
+<img width="1512" alt="Screenshot 2025-03-17 at 7 13 20 PM" src="https://github.com/user-attachments/assets/92a3c020-9a30-4408-8624-4f949e7ef640" />
+
+*Real-time monitoring of agent interactions and system performance in the LangSmith dashboard.*
+
 
 ##  Installation
 
@@ -156,36 +185,11 @@ Add scenarios in `scenarios/emergency_scenarios.py`:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
+## Resources
 
-- LangChain team for the excellent framework, specifically this YouTube video on building agent swarms: https://www.youtube.com/watch?v=4oC1ZKa9-Hs
-
-## Screenshots
-
-### Scenario Selection
-<img width="513" alt="Screenshot 2025-03-18 at 12 23 42 PM" src="https://github.com/user-attachments/assets/e0a27501-5407-4527-bcb8-0d464793c86a" />
-
-*The system presents various emergency scenarios for selection, including medical emergencies, security threats, and complex multi-tool scenarios. You can add your own in scenarios/emergency_scenarios.py*
-
-### Agent Interactions
-<img width="817" alt="Screenshot 2025-03-18 at 12 23 51 PM" src="https://github.com/user-attachments/assets/4fdb06d0-2c7a-46c2-bcf7-1f18bb29d0d1" />
-
-*The Emergency Coordinator analyzing a complex situation and delegating tasks to specialized agents.*
-
-### Medical Advisory
-<img width="821" alt="Screenshot 2025-03-18 at 12 24 01 PM" src="https://github.com/user-attachments/assets/570c729a-b13b-48fe-8441-d256876bbc34" />
-
-*The Medical Advisor providing specific guidance for the executive with a heart condition, including local emergency numbers and facility recommendations, shows a succesfull handoff and a perfect agent tool calling and execution*
-
-### Follow Up Requests
-<img width="825" alt="Screenshot 2025-03-18 at 12 24 24 PM" src="https://github.com/user-attachments/assets/ca18412b-39d6-4dfa-b32a-59511bd06024" />
-
-*The Communication Coordinator outlining strategies to locate and contact missing team members with user input ( a Follow up) .*
-
-### LangSmith Monitoring
-<img width="1512" alt="Screenshot 2025-03-17 at 7 13 20 PM" src="https://github.com/user-attachments/assets/92a3c020-9a30-4408-8624-4f949e7ef640" />
-
-*Real-time monitoring of agent interactions and system performance in the LangSmith dashboard.*
+- LangGraph YT Playlist for deeper understanding of framework: https://www.youtube.com/watch?v=5h-JBkySK34&list=PLfaIDFEXuae16n2TWUkKq5PgJ0w6Pkwtg&index=2
+- YouTube video on building agent swarms: https://www.youtube.com/watch?v=4oC1ZKa9-Hs
+- LangGraph docs : https://langchain-ai.github.io/langgraph/tutorials/introduction/
 
 ## Future Enhancements
 - [ ] Integration with real-world emergency services APIs ( TavilyAPI, SerpAPI for actual accomodations, travel expense)
