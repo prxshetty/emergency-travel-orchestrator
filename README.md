@@ -22,7 +22,8 @@ A sophisticated multi-agent system leveraging LangGraph's Swarm architecture, la
 > Note: The project uses inMemoryStore (Short Memory) and MemorySaver (Long Memory). Also LangGraph's swarm architecture can spawn multiple agents simultaneously with each agent maintains its own conversation state so complex scenarios (like my #6) can spawn up to 7-8 agents concurrently and each agent using its own api call. ( Laymans Terms : Scenario 6 will cost you!)
 ##  Agent Ecosystem
 
-Our system includes specialized agents for different aspects of travel emergencies:
+My system includes specialized agents for different aspects of travel emergencies:
+![Untitled-2025-03-18-1118(2)](https://github.com/user-attachments/assets/d98b613d-e4de-43a5-9325-b75a936bfbd6)
 
 | Agent | Role | Primary Responsibilities |
 |-------|------|------------------------|
